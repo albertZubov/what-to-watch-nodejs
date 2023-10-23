@@ -33,14 +33,15 @@ export default class CLIApplication {
     const parsedCommand = this.parseCommand(argv);
     const [commandName] = Object.keys(parsedCommand);
     const command = this.getCommand(commandName);
-    // console.log(command, "test");
     const commandArguments = parsedCommand[commandName] ?? [];
-    console.log(parsedCommand);
+    console.log(
+      `Введена команда ${command.name} с аргументами ${commandArguments}`,
+      command
+    );
     command.execute(...commandArguments);
   }
 
   public registerCommands(commandList: CliCommandInterface[]): void {
-    console.log(commandList[0], "commandList");
     commandList.reduce((acc, command) => {
       const cliCommand = command;
       acc[cliCommand.name] = cliCommand;
