@@ -16,7 +16,7 @@ export default class ConfigService implements ConfigInterface {
     const parsedOutput = config();
 
     if (parsedOutput.error) {
-      throw new Error(".enf file not read");
+      throw new Error(".env file not read");
     }
 
     configSchema.load({});
