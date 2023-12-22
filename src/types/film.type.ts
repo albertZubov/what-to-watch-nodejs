@@ -11,6 +11,10 @@ export type Film = {
   director: string;
   duration: number;
   quantityComments: number;
+  user: User;
+  poster: string;
+  backgroundImage: string;
+  backgroundColor: string;
 };
 
 export enum FilmGenre {
@@ -24,3 +28,10 @@ export enum FilmGenre {
   scifi = "scifi",
   thriller = "thriller",
 }
+
+export type User = {
+  avatarPath: string;
+  email: string;
+  name: string;
+  // password: string;
+};
