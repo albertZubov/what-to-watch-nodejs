@@ -11,5 +11,6 @@ plugins:
 extends:
   - "plugin:@typescript-eslint/recommended"
   - "htmlacademy/node"
-rules: 
+rules:
   quotes: "double"
+  # quotes: 2

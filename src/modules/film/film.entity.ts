@@ -1,4 +1,5 @@
-import { Film, FilmGenre, User } from "../../types/film.type";
+import mongoose from "mongoose";
+import { Film, FilmGenre, User } from "../../types/film.type.js";
 import typegoose, {
   defaultClasses,
   getModelForClass,
@@ -85,6 +86,7 @@ export class FilmEntity extends defaultClasses.TimeStamps implements Film {
   public videoSrc!: string;
 
   @prop({
+    type: mongoose.Schema.Types.Mixed,
     requred: true,
   })
   public actors!: string[];

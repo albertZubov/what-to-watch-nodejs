@@ -4,7 +4,7 @@ import typegoose, {
   getModelForClass,
   modelOptions,
 } from "@typegoose/typegoose";
-import { createSHA256 } from "../../utils/common";
+import { createSHA256 } from "../../utils/common.js";
 
 const { prop } = typegoose;
 

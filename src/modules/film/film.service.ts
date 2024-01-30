@@ -1,10 +1,10 @@
 import { DocumentType, types } from "@typegoose/typegoose";
 
 import { inject, injectable } from "inversify";
-import { Component } from "../../types/component.types";
+import { Component } from "../../types/component.types.js";
 import { LoggerInterface } from "../../common/logger/logger.interface";
 import { FilmServiceInterface } from "./film-service.interface";
-import { FilmEntity } from "./film.entity";
+import { FilmEntity } from "./film.entity.js";
 import createFilmDto from "./dto/create-film.dto";
 
 @injectable()
@@ -16,8 +16,13 @@ export default class FilmService implements FilmServiceInterface {
   ) {}
 
   public async create(dto: createFilmDto): Promise<DocumentType<FilmEntity>> {
-    const film = new FilmEntity(dto);
+    // TODO реализация на основе user.service
+    // const film = new FilmEntity(dto);
+    // this.logger.info(`New film created ${film.name}`);
+    // return await this.filmModel.create(film);
+
+    const film = await this.filmModel.create(dto);
     this.logger.info(`New film created ${film.name}`);
-    return await this.filmModel.create(film);
+    return film;
   }
 }
